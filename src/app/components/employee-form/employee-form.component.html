@@ -1,0 +1,137 @@
+<div class="form-container">
+  <h2>{{ isEditMode ? 'Edit Employee' : 'Add New Employee' }}</h2>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="employee-form">
+    <!-- Full Name Field -->
+    <div class="form-group">
+      <label for="fullName">Full Name *</label>
+      <input
+        id="fullName"
+        type="text"
+        formControlName="fullName"
+        [class.error]="isFieldInvalid('fullName')"
+        placeholder="Enter full name"
+      />
+      <div class="error-message" *ngIf="isFieldInvalid('fullName')">
+        {{ getErrorMessage('fullName') }}
+      </div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        [class.error]="isFieldInvalid('email')"
+        placeholder="Enter email address"
+      />
+      <div class="error-message" *ngIf="isFieldInvalid('email')">
+        {{ getErrorMessage('email') }}
+      </div>
+    </div>
+
+    <!-- Position Field -->
+    <div class="form-group">
+      <label for="position">Position *</label>
+      <select
+        id="position"
+        formControlName="position"
+        [class.error]="isFieldInvalid('position')"
+      >
+        <option value="">Select a position</option>
+        <option *ngFor="let position of positions" [value]="position">
+          {{ position }}
+        </option>
+      </select>
+      <div class="error-message" *ngIf="isFieldInvalid('position')">
+        {{ getErrorMessage('position') }}
+      </div>
+    </div>
+
+    <!-- Start Date Field -->
+    <div class="form-group">
+      <label for="startDate">Start Date *</label>
+      <input
+        id="startDate"
+        type="date"
+        formControlName="startDate"
+        [class.error]="isFieldInvalid('startDate')"
+      />
+      <div class="error-message" *ngIf="isFieldInvalid('startDate')">
+        {{ getErrorMessage('startDate') }}
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="form-group skills-section">
+      <label>Skills *</label>
+      <div formArrayName="skills" class="skills-container">
+        <div
+          *ngFor="let skill of skills.controls; let i = index"
+          [formGroupName]="i"
+          class="skill-row"
+        >
+          <div class="skill-inputs">
+            <div class="skill-field">
+              <select
+                formControlName="skill"
+                [class.error]="isSkillFieldInvalid(i, 'skill')"
+              >
+                <option value="">Select skill</option>
+                <option *ngFor="let availableSkill of availableSkills" [value]="availableSkill">
+                  {{ availableSkill }}
+                </option>
+              </select>
+              <div class="error-message" *ngIf="isSkillFieldInvalid(i, 'skill')">
+                {{ getSkillErrorMessage(i, 'skill') }}
+              </div>
+            </div>
+
+            <div class="experience-field">
+              <input
+                type="number"
+                formControlName="yearExperience"
+                [class.error]="isSkillFieldInvalid(i, 'yearExperience')"
+                placeholder="Years"
+                min="0"
+              />
+              <div class="error-message" *ngIf="isSkillFieldInvalid(i, 'yearExperience')">
+                {{ getSkillErrorMessage(i, 'yearExperience') }}
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="remove-skill-btn"
+            (click)="removeSkill(i)"
+            [disabled]="skills.length === 1"
+            aria-label="Remove skill"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="add-skill-btn"
+        (click)="addSkill()"
+      >
+        + Add Skill
+      </button>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button type="button" class="cancel-btn" (click)="onCancel()">
+        Cancel
+      </button>
+      <button type="submit" class="submit-btn" [disabled]="employeeForm.invalid">
+        {{ isEditMode ? 'Update Employee' : 'Add Employee' }}
+      </button>
+    </div>
+  </form>
+</div>

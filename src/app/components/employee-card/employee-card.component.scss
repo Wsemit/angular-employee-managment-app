@@ -1,0 +1,236 @@
+.employee-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    border-color: #cbd5e1;
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 20px 16px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+
+  .employee-info {
+    flex: 1;
+
+    .employee-name {
+      margin: 0 0 4px 0;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .employee-position {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: 12px;
+
+    button {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+      }
+
+      &.edit-btn:hover {
+        background: rgba(34, 197, 94, 0.2);
+      }
+
+      &.delete-btn:hover {
+        background: rgba(239, 68, 68, 0.2);
+      }
+    }
+  }
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.contact-info {
+  margin-bottom: 20px;
+
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .label {
+      font-weight: 500;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .value {
+      font-weight: 500;
+      color: #1e293b;
+      font-size: 14px;
+      text-align: right;
+      word-break: break-word;
+      margin-left: 12px;
+    }
+  }
+}
+
+.skills-section {
+  .skills-title {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #f1f5f9;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    font-size: 12px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    .skill-name {
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .skill-experience {
+      background: #4f46e5;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+  }
+
+  .total-experience {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+    padding: 8px 12px;
+    background: #f9fafb;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #f3f4f6;
+  }
+}
+
+// Mobile Responsiveness
+@media (max-width: 480px) {
+  .card-header {
+    padding: 16px;
+    flex-direction: column;
+    gap: 12px;
+
+    .card-actions {
+      margin-left: 0;
+      align-self: flex-end;
+    }
+  }
+
+  .card-body {
+    padding: 16px;
+  }
+
+  .contact-info .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+
+    .value {
+      text-align: left;
+      margin-left: 0;
+    }
+  }
+
+  .skills-section {
+    .skill-item {
+      font-size: 11px;
+      padding: 5px 10px;
+
+      .skill-experience {
+        font-size: 9px;
+        padding: 1px 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .card-header {
+    padding: 12px;
+
+    .employee-info {
+      .employee-name {
+        font-size: 16px;
+      }
+
+      .employee-position {
+        font-size: 13px;
+      }
+    }
+
+    .card-actions button {
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+    }
+  }
+
+  .card-body {
+    padding: 12px;
+  }
+}

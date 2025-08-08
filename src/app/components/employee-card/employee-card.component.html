@@ -1,0 +1,45 @@
+<div class="employee-card">
+  <div class="card-header">
+    <div class="employee-info">
+      <h3 class="employee-name">{{ employee.fullName }}</h3>
+      <p class="employee-position">{{ employee.position }}</p>
+    </div>
+    <div class="card-actions">
+      <button class="edit-btn" (click)="onEdit()" aria-label="Edit employee">
+        ✏️
+      </button>
+      <button class="delete-btn" (click)="onDelete()" aria-label="Delete employee">
+        🗑️
+      </button>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="contact-info">
+      <div class="info-item">
+        <span class="label">Email:</span>
+        <span class="value">{{ employee.email }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Start Date:</span>
+        <span class="value">{{ formatDate(employee.startDate) }}</span>
+      </div>
+    </div>
+
+    <div class="skills-section">
+      <h4 class="skills-title">Skills ({{ employee.skills.length }})</h4>
+      <div class="skills-list">
+        <div
+          *ngFor="let skill of employee.skills"
+          class="skill-item"
+        >
+          <span class="skill-name">{{ skill.skill }}</span>
+          <span class="skill-experience">{{ skill.yearExperience }}y</span>
+        </div>
+      </div>
+      <div class="total-experience" *ngIf="employee.skills.length > 0">
+        Total Experience: {{ getTotalExperience() }} years
+      </div>
+    </div>
+  </div>
+</div>
