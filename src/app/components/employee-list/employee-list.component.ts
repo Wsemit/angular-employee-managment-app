@@ -9,6 +9,7 @@ import { EmployeeCardComponent } from '../employee-card/employee-card.component'
 
 @Component({
     selector: 'app-employee-list',
+    standalone: true,
     imports: [CommonModule, ReactiveFormsModule, EmployeeCardComponent],
     templateUrl: './employee-list.component.html',
     styleUrls: ['./employee-list.component.scss']

@@ -6,6 +6,7 @@ import { EmployeeService } from '../../services/employee.service';
 
 @Component({
     selector: 'app-employee-form',
+    standalone: true,
     imports: [CommonModule, ReactiveFormsModule],
     templateUrl: './employee-form.component.html',
     styleUrls: ['./employee-form.component.scss']

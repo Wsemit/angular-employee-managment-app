@@ -4,6 +4,7 @@ import { Employee } from '../../models/employee.interface';
 
 @Component({
     selector: 'app-employee-card',
+    standalone: true,
     imports: [CommonModule],
     templateUrl: './employee-card.component.html',
     styleUrls: ['./employee-card.component.scss']
