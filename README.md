@@ -1,27 +1,100 @@
-# EmployeeApp
+[README.md](https://github.com/user-attachments/files/21685153/README.md)
+# 🆔 Angular Employee Management App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+A clean, customizable Employee Management System built with Angular.  
+Live demo deployed on Vercel: [https://angular-employee-managment-app.vercel.app](https://angular-employee-managment-app.vercel.app)
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Features
 
-## Code scaffolding
+- **Clean & Modern UI** with reactive search and sorting in real-time  
+- **Flexible Employee Cards** — toggle between default and custom templates  
+- **Full CRUD** support: add, edit, delete employees easily  
+- **Optimized Stack**: Angular CLI, Reactive Forms, RxJS, component-driven architecture  
+- **Vercel Deployment Ready** — automatic deployment on push to GitHub  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Clone the repo and install dependencies:
 
-## Running unit tests
+```bash
+git clone https://github.com/Wsemit/angular-employee-managment-app.git
+cd angular-employee-managment-app
+npm install
+npm start
+# or
+npx ng serve
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Open your browser at http://localhost:4200 to explore the app locally.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Build & Deployment
 
-## Further help
+Build the app for production:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng build --prod
+```
+
+The output will be in the `dist/` folder, ready for deployment.  
+
+The project is already set up for deployment on Vercel — just push your changes and watch it live at https://angular-employee-managment-app.vercel.app!
+
+---
+
+## Development Tips
+
+- Generate components:
+
+  ```bash
+  ng generate component component-name
+  ```
+
+- Generate services:
+
+  ```bash
+  ng generate service service-name
+  ```
+
+- Run tests:
+
+  ```bash
+  ng test
+  ng e2e
+  ```
+
+---
+
+## Project Structure
+
+```
+src/
+└── app/
+    ├── components/
+    │   ├── employee-card/
+    │   └── employee-list/
+    ├── services/
+    │   └── employee.service.ts
+    └── models/
+        └── employee.interface.ts
+app.component.ts - main entry point managing views
+```
+
+---
+
+## Contributing
+
+Love this project? Want to contribute?  
+
+1. Fork the repo  
+2. Create a feature branch (`git checkout -b feature/your-feature`)  
+3. Commit your changes (`git commit -m "feat: add new feature"`)  
+4. Push to your branch (`git push origin feature/your-feature`)  
+5. Open a Pull Request  
+
+---
