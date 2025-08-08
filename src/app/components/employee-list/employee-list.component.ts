@@ -8,11 +8,10 @@ import { EmployeeService } from '../../services/employee.service';
 import { EmployeeCardComponent } from '../employee-card/employee-card.component';
 
 @Component({
-  selector: 'app-employee-list',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, EmployeeCardComponent],
-  templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.scss']
+    selector: 'app-employee-list',
+    imports: [CommonModule, ReactiveFormsModule, EmployeeCardComponent],
+    templateUrl: './employee-list.component.html',
+    styleUrls: ['./employee-list.component.scss']
 })
 export class EmployeeListComponent implements OnInit, OnDestroy {
   @Input() customCardTemplate: TemplateRef<any> | null = null;

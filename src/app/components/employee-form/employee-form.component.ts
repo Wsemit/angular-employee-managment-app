@@ -5,11 +5,10 @@ import { Employee, POSITIONS, AVAILABLE_SKILLS } from '../../models/employee.int
 import { EmployeeService } from '../../services/employee.service';
 
 @Component({
-  selector: 'app-employee-form',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './employee-form.component.html',
-  styleUrls: ['./employee-form.component.scss']
+    selector: 'app-employee-form',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './employee-form.component.html',
+    styleUrls: ['./employee-form.component.scss']
 })
 export class EmployeeFormComponent implements OnInit {
   @Input() employeeToEdit: Employee | null = null;
