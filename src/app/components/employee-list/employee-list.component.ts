@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
 import { Observable, Subject, combineLatest, map, startWith } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Employee, SortField, SortDirection } from '../../models/employee.interface';
@@ -18,7 +18,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
   @Input() customCardTemplate: TemplateRef<any> | null = null;
   @Output() editEmployee = new EventEmitter<Employee>();
 
-  searchControl = new FormControl('');
+  searchControl = new UntypedFormControl('');
   sortField: SortField = 'fullName';
   sortDirection: SortDirection = 'asc';
 

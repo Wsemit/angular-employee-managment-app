@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray, Validators, AbstractControl } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, UntypedFormArray, Validators, AbstractControl } from '@angular/forms';
 import { Employee, POSITIONS, AVAILABLE_SKILLS } from '../../models/employee.interface';
 import { EmployeeService } from '../../services/employee.service';
 
@@ -16,13 +16,13 @@ export class EmployeeFormComponent implements OnInit {
   @Output() formSubmitted = new EventEmitter<void>();
   @Output() formCancelled = new EventEmitter<void>();
 
-  employeeForm!: FormGroup;
+  employeeForm!: UntypedFormGroup;
   positions = POSITIONS;
   availableSkills = AVAILABLE_SKILLS;
   isEditMode = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private employeeService: EmployeeService
   ) {}
 
@@ -73,8 +73,8 @@ export class EmployeeFormComponent implements OnInit {
     return `${year}-${month}-${day}`;
   }
 
-  get skills(): FormArray {
-    return this.employeeForm.get('skills') as FormArray;
+  get skills(): UntypedFormArray {
+    return this.employeeForm.get('skills') as UntypedFormArray;
   }
 
   addSkill(skill: string = '', yearExperience: number = 0): void {
@@ -167,9 +167,9 @@ export class EmployeeFormComponent implements OnInit {
       const control = this.employeeForm.get(key);
       control?.markAsTouched();
 
-      if (control instanceof FormArray) {
+      if (control instanceof UntypedFormArray) {
         control.controls.forEach(arrayControl => {
-          if (arrayControl instanceof FormGroup) {
+          if (arrayControl instanceof UntypedFormGroup) {
             Object.keys(arrayControl.controls).forEach(nestedKey => {
               arrayControl.get(nestedKey)?.markAsTouched();
             });
